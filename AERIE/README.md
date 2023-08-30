@@ -37,8 +37,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Create new branch
 
 Open the repository in a code editor of your choice. Make sure the terminal is in the correct directory for the repository. 
+
 Start working on features by making a new branch.
-Create branch: **git checkout -b <name-of-branch>**.
+Create branch: **git checkout -b (name of branch)**.
 This will automatically make a branch on Github.
 
 ## Commiting Code
