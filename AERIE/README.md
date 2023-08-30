@@ -26,8 +26,36 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-## Using Git Commands
+# Using Git Commands
 
-# Create new branch
+## Clone the repository
 
-Commiting Code
+1) Go to the directory you wish to clone the repository into.
+2) Run the following command: git clone <https of repository from Github>
+3) Set remote origin: git remote set-url origin <https of repository from Github>
+
+## Create new branch
+
+Open the repository in a code editor of your choice. Make sure the terminal is in the correct directory for the repository. 
+Start working on features by making a new branch.
+Create branch: git checkout -b <name-of-branch>. 
+This will automatically make a branch on Github.
+
+## Commiting Code
+
+When commiting code you need to follow the following steps:
+1) Stage your code changes for the commit command.
+   Stage all code changes: git add .
+   Stage specific files: git add path/to/file/you/want/to/commit
+2) Commit your staged code: git commit -m "Descriptive message"
+3) Push your commit to Github: git push origin <name-of-branch-you-are-working-on>
+4) Code will need to be merged using Github after the push.
+
+## Pulling Code
+
+1) Make sure you are on the correct branch you wish to pull code to.
+2) Pull code from Github: git pull origin <name-of-branch-to-pull-from>
+
+## Check what branch you are on
+
+git branch
