@@ -31,8 +31,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Clone the repository
 
 1) Go to the directory you wish to clone the repository into.
-2) Run the following command: **git clone https-of-repository-from-Github**
-3) Set remote origin: **git remote set-url origin https-of-repository-from-Github**
+2) Run the following command: **git clone (https of repository from Github)**
+3) Set remote origin: **git remote set-url origin (https of repository from Github)**
 
 ## Create new branch
 
@@ -48,7 +48,7 @@ When commiting code you need to follow the following steps:
    Stage all code changes: **git add .**
    Stage specific files:** git add path/to/file/you/want/to/commit**
 2) Commit your staged code: **git commit -m "Descriptive message"**
-3) Push your commit to Github: **git push origin name-of-branch-you-are-working-on**
+3) Push your commit to Github: **git push origin (name of branch you are working on)**
 4) Code will need to be merged using Github after the push.
 
 ## Pulling Code
