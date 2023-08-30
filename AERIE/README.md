@@ -38,7 +38,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 Open the repository in a code editor of your choice. Make sure the terminal is in the correct directory for the repository. 
 Start working on features by making a new branch.
-Create branch: **git checkout -b <name-of-branch>. **
+Create branch: **git checkout -b <name-of-branch>**.
 This will automatically make a branch on Github.
 
 ## Commiting Code
@@ -46,7 +46,7 @@ This will automatically make a branch on Github.
 When commiting code you need to follow the following steps:
 1) Stage your code changes for the commit command.
    Stage all code changes: **git add .**
-   Stage specific files:** git add path/to/file/you/want/to/commit**
+   Stage specific files: **git add path/to/file/you/want/to/commit**
 2) Commit your staged code: **git commit -m "Descriptive message"**
 3) Push your commit to Github: **git push origin (name of branch you are working on)**
 4) Code will need to be merged using Github after the push.
