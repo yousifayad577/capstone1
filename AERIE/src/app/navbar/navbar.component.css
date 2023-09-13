@@ -1,0 +1,126 @@
+/*********** MENU ***********/
+.navbar {
+  width: 100%;
+}
+
+.nav-menu {
+  background: #00853E;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.nav-menu ul, .nav-menu li{
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu ul li {
+  position: relative;
+  width: auto;
+  display: inline-block;
+}
+
+.nav-menu ul {
+  list-style: none;
+  width: 100%;
+  text-align: right;
+  margin-right: 5px;
+}
+
+.nav-menu li {
+  position: relative;
+  width: auto;
+}
+
+.nav-menu a {
+  color:white;
+  display: block;
+  font-weight: 400;
+  font-size: 17px;
+  font-family: 'Poppins',sans-serif;
+  padding: 5px 10px;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.nav-menu-link:hover {
+  background: #003d1d;
+}
+
+.nav-menu img {
+  width: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+/*********** SUB-MENU ***********/
+#navSubMenu {
+  opacity: 0;
+  visibility: hidden;
+  background: rgb(240, 240, 240);
+  padding: 20px;
+  margin: 5px 10px; 
+  border-radius: 5%;
+  position: absolute;
+  top: 90%;
+  right: 0%;
+  width: 250px;
+  z-index: 1;
+}
+
+li:hover ul#navSubMenu {
+  opacity: 1;
+  visibility: visible;
+}
+
+#navSubMenu li {
+  padding-left: 5%;
+  margin-top: -15px;
+  display: flex;
+  align-items: center;
+}
+
+.sub-menu-user-info {
+  width: 100%;
+}
+
+.sub-menu-user-info h3 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.sub-menu-user-info hr {
+  border: 0;
+  height: 1px;
+  width: 100%;
+  background: black;
+  margin: 15px 0 10px;
+}
+
+.nav-sub-menu-link p {
+  color: black;
+  width: 100%;
+}
+
+.nav-sub-menu-link mat-icon {
+  color: black;
+  width: 40px;
+}
+
+.nav-sub-menu-link:hover p {
+  font-weight: 600;
+}
+
+/* 
+.nav-logo {
+  color: white;
+  font-size: 35px;
+  line-height: 60px;
+  width: 120px;
+} */
