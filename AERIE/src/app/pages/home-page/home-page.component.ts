@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent {
+  onLogin: boolean = true;
 
+  toggleLogin(): void {
+    this.onLogin = !this.onLogin;
+    console.log("toggle login");
+  }
 }

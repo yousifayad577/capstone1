@@ -1,1 +1,10 @@
-<p>home-page works!</p>
+<section *ngIf="onLogin">
+    <h1>Login</h1>
+    <P>{{ onLogin }}</P>
+    <button (click)="toggleLogin()">Click me</button>
+</section>
+<section *ngIf="!onLogin">
+    <h1>Register</h1>
+    <P>{{ onLogin }}</P>
+    <button (click)="toggleLogin()">Click me</button>
+</section>
