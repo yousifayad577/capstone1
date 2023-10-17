@@ -7,6 +7,7 @@ import { SettingsPageComponent } from './pages/settings-page/settings-page.compo
 import { AboutAeriePageComponent} from './pages/about-aerie-page/about-aerie-page.component';
 import { AboutMePageComponent} from './pages/about-me-page/about-me-page.component';
 import { AboutGroupPageComponent} from './pages/about-group-page/about-group-page.component';
+import { LoginRegistrationPageComponent } from './pages/login-registration-page/login-registration-page.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'about-group-page', component: AboutGroupPageComponent },
   { path: 'about-aerie-page', component: AboutAeriePageComponent },
   { path: 'settings-page', component: SettingsPageComponent },
-  { path: 'surveys-page', component: SurveysPageComponent }
+  { path: 'surveys-page', component: SurveysPageComponent },
+  { path: 'login-registration-page', component: LoginRegistrationPageComponent}
 ];
 
 @NgModule({
