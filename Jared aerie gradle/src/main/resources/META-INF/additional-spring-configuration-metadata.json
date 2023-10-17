@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "spring.data.mongodb.connectionPoolSize",
+      "type": "java.lang.String",
+      "description": "A description for 'spring.data.mongodb.connectionPoolSize'"
+    }
+  ]
+}

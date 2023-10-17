@@ -1,0 +1,5 @@
+spring:
+  data:
+    mongodb:
+      uri: "mongodb+srv://aerie696:Aerie%402022@cluster0.cbhxvgs.mongodb.net/Aerie"
+      connectionPoolSize: 20
