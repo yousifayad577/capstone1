@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class LoginRegistrationPageComponent {
 
+   onLogin: boolean = true;
+
+  toggleLogin(): void {
+    this.onLogin = !this.onLogin;
+    console.log("toggle login");
+  }
+
 }
