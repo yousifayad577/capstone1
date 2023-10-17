@@ -1,1 +1,52 @@
-<p>about-me-page works!</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <!-- Link to your external CSS file -->
+    <link rel="stylesheet" href="about-me-page.component.css">
+</head>
+
+<body>
+    <form action="login.php" method="post">
+        <h2>Edit Profile</h2>
+
+        <!-- Circular profile image container -->
+        <div class="profile-image-container">
+            <img src="path/to/default-profile-image.jpg" alt="Profile Image" id="profile-image" class="profile-image">
+            <input type="file" id="profile-image-input" class="hidden" accept="image/*">
+            <label for="profile-image-input" class="upload-button"></label>
+        </div>
+
+        <label for="FirstName">First Name:</label>
+        <input type="text" id="FirstName" name="FirstName" placeholder="Enter your First Name" required>
+
+        <label for="LasttName">Last Name:</label>
+        <input type="text" id="LastName" name="LastName" placeholder="Enter your Last Name" required>
+
+        <label for="Major">Major:</label>
+        <input type="text" id="Major" name="Major" placeholder="Enter your Major" required>
+
+        <label for="interest">Interest:</label>
+        <input type="text" id="Interest" name="Interest" placeholder="Enter your Interest" required>
+
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" placeholder="Enter your email" required>
+
+        <label for="Description">Description:</label>
+        <input type="text" id="Description" name="Description" placeholder="Enter your Description" required>
+
+        <button type="submit">Save</button>
+        <button type="cancel">Cancel</button>
+
+        
+
+
+
+        <!-- Submit button and other form elements go here -->
+    </form>
+</body>
+
+</html>
