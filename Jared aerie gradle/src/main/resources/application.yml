@@ -1,5 +1,18 @@
 spring:
   data:
     mongodb:
-      uri: "mongodb+srv://aerie696:Aerie%402022@cluster0.cbhxvgs.mongodb.net/Aerie"
-      connectionPoolSize: 20
+      database: "Aerie"
+      uri: "mongodb+srv://aerie696:aerie2022@cluster0.a254omp.mongodb.net"
+
+logging:
+  level:
+    org:
+      mongodb:
+        driver: WARN
+
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
+    include-stacktrace: never
+    include-exception: false

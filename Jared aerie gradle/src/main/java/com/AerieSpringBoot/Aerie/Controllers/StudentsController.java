@@ -4,34 +4,66 @@
 package com.AerieSpringBoot.Aerie.Controllers;
 
 import java.util.List;
-import java.util.Optional;
 
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.AerieSpringBoot.Aerie.Students;
 import com.AerieSpringBoot.Aerie.Services.StudentService;
 
 @RestController
-@RequestMapping("/api/v1/students")
+@CrossOrigin(origins = "*")
+@RequestMapping("/api/v1/Student")
 public class StudentsController {
+    
     @Autowired
     private StudentService studentService;
 
-    @GetMapping()
-    public ResponseEntity<List<Students>> getAllStudents() {
-        return new ResponseEntity<List<Students>>(studentService.getAllStudents(), HttpStatus.OK);
+    // Constructor
+    public StudentsController(StudentService studentService) {
+        this.studentService = studentService;
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Optional<Students>> getSingleStudent(@PathVariable ObjectId id) {
-        return new ResponseEntity<Optional<Students>>(studentService.getSingleStudent(id), HttpStatus.OK);
+    // @GetMapping
+    // public List<Students> getStudents() {
+    //     return studentService.getStudents();
+    // }
+    @GetMapping
+    public ResponseEntity<List<Students>> getStudents() {
+        return new ResponseEntity<List<Students>>(studentService.getStudents(), HttpStatus.OK);
     }
-    
+
+    @PostMapping
+    public void registerNewStudent(@RequestBody Students student) {
+        studentService.addNewStudent(student);
+    }
+
+    @DeleteMapping(path = "{studentId}")
+    public void deleteStudent(@PathVariable("studentId") String studentId) {
+        studentService.deleteStudent(studentId);
+    }
+
+    @PutMapping(path = "{studentId}")
+    public void updateStudent(
+            @PathVariable("studentId") String studentId,
+            @RequestParam(required = false) String first_name,
+            @RequestParam(required = false) String last_name,
+            @RequestParam(required = false) String email,
+            @RequestParam(required = false) String major) {
+
+        System.out.println("first = " + first_name);
+        System.out.println("email = " + email);
+        studentService.updateStudent(studentId, first_name, last_name, email, major);
+    }
 }

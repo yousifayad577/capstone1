@@ -5,13 +5,16 @@ package com.AerieSpringBoot.Aerie.Repositories;
 
 import java.util.Optional;
 
-import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 import com.AerieSpringBoot.Aerie.Students;
 
+
 @Repository
-public interface StudentRepository extends MongoRepository<Students, ObjectId> {
-    Optional<Students> findStudentByName(String name);
+public interface StudentRepository extends MongoRepository<Students, String> {
+
+    // Find student by email
+    Optional<Students> findByEmail(String email);
+
 }

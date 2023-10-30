@@ -1,0 +1,2 @@
+### Mongo Atlas API key for database. This is the only copy and there is no way to get it again ###
+API_KEY = "pH607wQTOJyByUland2FIIFqIwy8AQYtDmvNyrVVXTXNjUUZPASJpeKndeLqJLeO"

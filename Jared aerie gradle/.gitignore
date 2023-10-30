@@ -39,3 +39,6 @@ out/
 ### .env ###
 .env
 .fake
+
+### angular node modules ###
+/AERIE/node_modules
