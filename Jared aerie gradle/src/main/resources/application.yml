@@ -16,3 +16,9 @@ server:
     include-binding-errors: always
     include-stacktrace: never
     include-exception: false
+
+# JWT Configuration
+security:
+  jwt:
+    secret: YourSecretKeyHere
+    expiration: 3600000 # Token expiration time in milliseconds (1 hour, you can adjust this value)

@@ -17,21 +17,24 @@ public class Students {
     private String last_name;
     private String email;
     private String major;
+    private String password;
 
     public Students() {}
 
-    public Students(String first_name, String last_name, String email, String major) {
+    public Students(String first_name, String last_name, String email, String major, String password) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
         this.major = major;
+        this.password = password;
     }
 
-    public Students(String _id, String first_name, String last_name, String email, String major) {
+    public Students(String _id, String first_name, String last_name, String email, String major, String password) {
         this._id = _id;
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
         this.major = major;
+        this.password = password;
     }
 }

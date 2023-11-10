@@ -17,18 +17,21 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import com.AerieSpringBoot.Aerie.Students;
+import com.AerieSpringBoot.Aerie.Auth.JwtTokenProvider;
 import com.AerieSpringBoot.Aerie.Services.StudentService;
 
-@RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/v1/Student")
 public class StudentsController {
     
     @Autowired
     private StudentService studentService;
+
+    @Autowired
+    private JwtTokenProvider jwtTokenProvider;
 
     // Constructor
     public StudentsController(StudentService studentService) {
@@ -49,6 +52,43 @@ public class StudentsController {
         studentService.addNewStudent(student);
     }
 
+    @PostMapping("/register")
+    public ResponseEntity<?> registerStudent(@RequestBody Students student, UriComponentsBuilder uriComponentsBuilder) {
+        Students registeredStudent = studentService.addNewStudent(student);
+
+        return ResponseEntity
+                .created(uriComponentsBuilder.path("/api/users/{email}")
+                .buildAndExpand(registeredStudent.getEmail()).toUri())
+                .body(registeredStudent);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<?> loginStudent(@RequestBody Students student) {
+        String email = student.getEmail();
+        String password = student.getPassword();
+
+        String token = studentService.loginStudent(email, password);
+
+        return ResponseEntity.ok(new JwtResponse(token));
+    }
+
+    // Find student credentials by email for login
+    // @PostMapping(value = "/login")
+    // // public ResponseEntity<AuthenticationResponse> loginStudent(@RequestBody AuthenticationRequest request) {
+    // public ResponseEntity<Students> loginStudent(@RequestBody Map<String, String> loginData) {
+    //     // String email = loginData.get("email");
+    //     // String password = loginData.get("password");
+
+    //     Students student = studentService.getStudent(loginData.get("email"));
+
+    //     if(student != null && (student.getPassword() == loginData.get("password"))) {
+    //         return new ResponseEntity<Students>(student, HttpStatus.OK);
+    //     }
+
+    //     // return ResponseEntity.ok(studentService.authenticate(request));
+    //     return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+    // }
+
     @DeleteMapping(path = "{studentId}")
     public void deleteStudent(@PathVariable("studentId") String studentId) {
         studentService.deleteStudent(studentId);
@@ -60,10 +100,9 @@ public class StudentsController {
             @RequestParam(required = false) String first_name,
             @RequestParam(required = false) String last_name,
             @RequestParam(required = false) String email,
-            @RequestParam(required = false) String major) {
+            @RequestParam(required = false) String major,
+            @RequestParam(required = false) String password) {
 
-        System.out.println("first = " + first_name);
-        System.out.println("email = " + email);
-        studentService.updateStudent(studentId, first_name, last_name, email, major);
+        studentService.updateStudent(studentId, first_name, last_name, email, major, password);
     }
 }

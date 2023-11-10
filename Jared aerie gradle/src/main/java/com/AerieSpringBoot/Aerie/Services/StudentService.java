@@ -7,9 +7,11 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.AerieSpringBoot.Aerie.Students;
+import com.AerieSpringBoot.Aerie.Auth.JwtTokenProvider;
 import com.AerieSpringBoot.Aerie.Repositories.StudentRepository;
 
 @Service
@@ -17,6 +19,12 @@ public class StudentService {
 
     @Autowired
     private StudentRepository studentRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private JwtTokenProvider jwtTokenProvider;
 
     // Constructor
     public StudentService(StudentRepository studentRepository) {
@@ -28,8 +36,29 @@ public class StudentService {
         return studentRepository.findAll();
     }
 
+    // ********** FIND STUDENT **********
+    public Students getStudent(String body) {
+        // Check if email exist
+        Optional<Students> studentOptional = studentRepository.findByEmail(body);
+        System.out.println(studentOptional.get());
+
+        return studentOptional.get();
+    }
+
+    // ********** LOGIN STUDENT **********
+    public String loginStudent(String email, String password) {
+        Students student = studentRepository.findByEmail(email)
+                            .orElseThrow(() -> new UserNotFoundException("Student not found"));
+
+        if (!passwordEncoder.matches(password, student.getPassword())) {
+            throw new InvalidPasswordException("Invalid Password");
+        }
+
+        return jwtTokenProvider.createToken(email);
+    }
+
     // ********** ADD NEW STUDENT **********
-    public void addNewStudent(Students student) {
+    public Students addNewStudent(Students student) {
         // Check if email is already exists
         Optional<Students> studentOptional = studentRepository.findByEmail(student.getEmail());
         
@@ -39,7 +68,7 @@ public class StudentService {
         }
 
         // Save new student to database
-        studentRepository.save(student);
+        return studentRepository.save(student);
     }
 
     // ********** DELETE STUDENT **********
@@ -60,7 +89,8 @@ public class StudentService {
             String first_name, 
             String last_name, 
             String email, 
-            String major) {
+            String major,
+            String password) {
         
         // Get student info by id
         Students student = studentRepository.findById(studentId)
@@ -89,6 +119,10 @@ public class StudentService {
         // Verify and set new major
         if((major != null) && (major.length() > 0) && (!student.getMajor().equals(major))) {
             student.setMajor(major);
+        }
+        // Verify and set new password
+        if((password != null) && (password.length() > 0) && (!student.getPassword().equals(password))) {
+            student.setPassword(password);
         }
 
         // Save new student data
