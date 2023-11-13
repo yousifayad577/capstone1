@@ -1,0 +1,3 @@
+I spent this sprint looking into creating a test Mongo database in order to try using my sorting algorithm on that data so that when our real back end is prepared it can be more easily
+integrated. I also spent time putting together a survey that we would like to eventually send to the class in order for us to have real data to work with instead of the fake
+data we have now.
