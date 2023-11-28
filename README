@@ -1,3 +1,8 @@
+Worked with the rest of the group as instructed on the back end. I tried using Amazon web services in order to connect to the front end of
+project however Yousif was able to get his back end to work first so we ended up using his version. I have also pulled together some 
+good questions for our survey and it is ready to send out.
+
+
 I spent this sprint looking into creating a test Mongo database in order to try using my sorting algorithm on that data so that when our real back end is prepared it can be more easily
 integrated. I also spent time putting together a survey that we would like to eventually send to the class in order for us to have real data to work with instead of the fake
 data we have now.
