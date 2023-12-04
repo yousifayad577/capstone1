@@ -1,0 +1,87 @@
+
+<section *ngIf="onLogin">
+    <h1></h1>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <button (click)="toggleLogin()">Sign up</button>
+
+</head>
+<body>
+    
+    <form>
+        <h2>Login</h2>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" [(ngModel)]="email" placeholder="Enter your email" required>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" [(ngModel)]="password" placeholder="Enter your password" required>
+        
+        <button type="submit" (click)="onLoginClick()">Login</button>
+        <button (click)="toggleLogin()">Sign up</button>
+
+    </form>
+</body>
+<link rel="stylesheet" href="login-registration-page.component.css">
+
+</html>
+
+
+
+</section>
+
+
+
+<!-- Sign up -->
+
+<section *ngIf="!onLogin">
+    <h1></h1>
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign up</title>
+       
+            
+     
+            <button (click)="toggleLogin()">Sign up</button>
+    
+    </head>
+    <body>
+        <form>
+            <h2>Sign up</h2>
+            <label for="first-name">First name:</label>
+            <input type="text" id="first-name" name="firstName" [(ngModel)]="signupBody.firstName"  placeholder="Enter your First name" required>
+
+            
+            
+            <label for="last-name">Last name:</label>
+            <input type="text" id="last-name" name="lastName" [(ngModel)]="signupBody.lastName" placeholder="Enter your Last name" required>
+
+
+
+
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" [(ngModel)]="signupBody.email" placeholder="Enter your email" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" [(ngModel)]="signupBody.password" placeholder="Enter your password" required>
+            
+            <button type="submit" (click)="onSignup()">Sign up</button>
+            <p>Already a user?</p> <button (click)="toggleLogin()">Log in</button>
+    
+        </form>
+    </body>
+    <link rel="stylesheet" href="login-registration-page.component.css">
+    
+    </html>
+
+    
+
+</section>
+

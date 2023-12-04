@@ -1,0 +1,80 @@
+body {
+    /* background-image: url('./images/home.jpg');  */
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    margin: 0;
+}
+
+/* Log in */
+
+form {
+    width: 350px;
+    padding: 70px;
+    border: 1px solid #00853E;
+    border-radius: 5px;
+    margin-top: 60px; /* Add margin-top to move the form up */
+    
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #00853E;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #00853E;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+label[for="Description"] {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"]#Description {
+    width: 106%;
+    padding: 15px; /* Increase padding to make the input box taller */
+    margin-bottom: 10px;
+    border: 1px solid #00853E;
+    border-radius: 5px;
+    height: 50px; /* Increase height to make the input box taller */
+    box-sizing: border-box; /* Include padding and border in the total height */
+}
+
+/* Rest of your CSS */
+
+/* Add this CSS code to your about-me-page.component.css file */
+.profile-image.circular-image {
+    background-color: gray;
+    border-radius: 50%; /* Make the image circular */
+    width: 100px; /* Set a fixed width for the image */
+    height: 100px; /* Set a fixed height for the image */
+    object-fit: cover; /* Maintain aspect ratio and cover container */
+}
+
+.profile-image-container {
+float: right;
+margin-right: auto;
+text-align: center; /* Center the image within the container */
+}
+
+
+/* Rest of your CSS styles go here */

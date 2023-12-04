@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .left-table {
+            width: 50%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .right-tables {
+            width: 50%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .slider-container {
+            margin-top: 20px;
+        }
+
+        .slider {
+            width: 100%;
+            height: 300px;
+            border: 1px solid black;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-table">
+            <table>
+                <th>Group Members</th>
+
+                <tr>
+                    <th>Name</th>
+                    <th>Major</th>
+                    <th>Accomplishments</th>
+                </tr>
+
+                <tr *ngFor="let user of usersData">
+                    <td>{{user.firstName + " " + user.lastName}}</td>
+                    <td>{{user.major || "-"}}</td>
+                    <td>+</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="right-tables">
+            <div class="slider-container">
+                <table>
+                    <tr>
+                        <th>Group Achievement</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="slider">
+                                <div class="slides">
+                                    <!-- You can add your slider content here -->
+                                    <div class="slide"  *ngFor="let achievement of achievements">{{achievement}}</div>
+                                    <!-- <div class="slide">Slide 2</div>
+                                    <div class="slide">Slide 3</div> -->
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div>
+                <table>
+                    <tr>
+                        <th>Top Achievement</th>
+                    </tr>
+                    <!-- Repeat the following row 5 times for 5 rows -->
+                    <tr *ngFor="let achievement of achievements">
+                        <td>{{achievement}}</td>
+                    </tr>
+                    <!-- Repeat the above row structure 4 more times -->
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
